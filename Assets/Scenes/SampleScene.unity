@@ -392,12 +392,12 @@ MonoBehaviour:
   offlineScene: 
   onlineScene: 
   transport: {fileID: 706709563}
-  networkAddress: 192.168.2.104
+  networkAddress: localhost
   maxConnections: 100
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 5535863002174753880, guid: 54851b6ce85a2b4419883b6b89660016,
+  playerPrefab: {fileID: 6706769065727266867, guid: 54851b6ce85a2b4419883b6b89660016,
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0

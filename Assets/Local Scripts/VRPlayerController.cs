@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class VRPlayerController : MonoBehaviour
+public class VRPlayerController : NetworkBehaviour
 {
     [Range(0,10)]
     public float playerSpeed = 0.2f;
@@ -35,7 +36,7 @@ public class VRPlayerController : MonoBehaviour
 
     void Update()
     {
-        
+
         //Vector2 inp = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
 
         //if (inp == Vector2.zero) return;
@@ -45,19 +46,18 @@ public class VRPlayerController : MonoBehaviour
         Vector3 rightHandLoc = rightHand.transform.position;
 
         float playerDistance = Vector3.Distance(playerLoc, prevPlayerLoc);
-        float handSpeed = (Vector3.Distance(leftHandLoc, prevLeftHandLoc)-playerDistance)+
-            (Vector3.Distance(rightHandLoc, prevRightHandLoc)-playerDistance);
+        float handSpeed = (Vector3.Distance(leftHandLoc, prevLeftHandLoc) - playerDistance) +
+            (Vector3.Distance(rightHandLoc, prevRightHandLoc) - playerDistance);
 
         prevPlayerLoc = playerLoc;
         prevLeftHandLoc = leftHandLoc;
         prevRightHandLoc = rightHandLoc;
-        Debug.Log(handSpeed*100);
-
-        if (handSpeed*100 > moveSens)
+        if (handSpeed * 100 > moveSens)
         {
             Vector3 forward = Utils.toXZPlane(playerCamera.transform.forward).normalized;
 
             rb.velocity = playerSpeed * forward;
+            Debug.Log(forward);
         }
 
 

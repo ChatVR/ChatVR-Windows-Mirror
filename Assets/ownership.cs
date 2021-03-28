@@ -42,9 +42,15 @@ public class ownership : NetworkBehaviour
 
             if (!(closest == currentOwner))
             {
-                currentOwner = closest;
                 NetworkIdentity identity = listenFor.GetComponent<NetworkIdentity>();
                 NetworkIdentity newOwner = closest.GetComponent<NetworkIdentity>();
+
+                if (currentOwner != null)
+                {
+                    identity.RemoveClientAuthority();//((NetworkIdentity)currentOwner.GetComponent<NetworkIdentity>()).connectionToClient);
+                }
+
+                currentOwner = closest;
                 identity.AssignClientAuthority(newOwner.connectionToClient); //NetworkConnection.NetworkConnectionToClient(newOwner));
                 Debug.Log("Set network authority");
             }

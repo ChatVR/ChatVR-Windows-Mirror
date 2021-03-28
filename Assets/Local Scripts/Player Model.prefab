@@ -1638,7 +1638,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   playerSpeed: 3
-  moveSens: 1.1
+  moveSens: 7
   col: {fileID: 0}
   rb: {fileID: 0}
   playerRig: {fileID: 7163074572926532248}

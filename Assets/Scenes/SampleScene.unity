@@ -392,7 +392,7 @@ MonoBehaviour:
   offlineScene: 
   onlineScene: 
   transport: {fileID: 706709563}
-  networkAddress: localhost
+  networkAddress: 192.168.2.104
   maxConnections: 100
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
@@ -475,7 +475,6 @@ PrefabInstance:
         type: 3}
       propertyPath: _playbackPrefab2
       value: 
-      objectReference: {fileID: 1000010352696724, guid: efff4d41185594747bad56b1edf75dbd,
-        type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1264c01c7f8182e47ac9f784af03d895, type: 3}

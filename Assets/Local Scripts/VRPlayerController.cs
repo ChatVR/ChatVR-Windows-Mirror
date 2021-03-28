@@ -15,6 +15,7 @@ public class VRPlayerController : NetworkBehaviour
     public Rigidbody rb;
 
     /* Player Objects */
+    public GameObject playerRig;
     public GameObject playerCamera;
     public GameObject leftHand;
     public GameObject rightHand;
@@ -26,22 +27,21 @@ public class VRPlayerController : NetworkBehaviour
 
     void Start()
     {
-        col = GetComponent<Collider>();
-        rb = GetComponent<Rigidbody>();
+        col = playerRig.GetComponent<Collider>();
+        rb = playerRig.GetComponent<Rigidbody>();
 
-        prevPlayerLoc = transform.position;
+        prevPlayerLoc = playerRig.transform.position;
         prevLeftHandLoc = leftHand.transform.position;
         prevRightHandLoc = rightHand.transform.position;
     }
 
     void Update()
     {
-
         //Vector2 inp = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
 
         //if (inp == Vector2.zero) return;
 
-        Vector3 playerLoc = transform.position;
+        Vector3 playerLoc = playerRig.transform.position;
         Vector3 leftHandLoc = leftHand.transform.position;
         Vector3 rightHandLoc = rightHand.transform.position;
 

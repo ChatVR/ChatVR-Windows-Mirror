@@ -19,7 +19,7 @@ public class LocalPlayer : NetworkBehaviour
         {
             //(CameraOffset)movement.GetComponent<CameraOffset>().enabled = true;
             camera.SetActive(true);
-            ((VRPlayerController)rig.GetComponent<VRPlayerController>()).enabled = true;
+            ((VRPlayerController)GetComponent<VRPlayerController>()).enabled = true;
             ((TrackedPoseDriver)rightArm.GetComponent<TrackedPoseDriver>()).enabled = true;
             ((TrackedPoseDriver)leftArm.GetComponent<TrackedPoseDriver>()).enabled = true;
         }

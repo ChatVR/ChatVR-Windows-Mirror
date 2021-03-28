@@ -12,22 +12,30 @@ public class LocalPlayer : NetworkBehaviour
     public GameObject camera;
     public GameObject rightArm;
     public GameObject leftArm;
+    public GameObject body;
 
     void Start()
     {
         if (isLocalPlayer)
         {
             //(CameraOffset)movement.GetComponent<CameraOffset>().enabled = true;
-            camera.SetActive(true);
-            ((VRPlayerController)GetComponent<VRPlayerController>()).enabled = true;
-            ((TrackedPoseDriver)rightArm.GetComponent<TrackedPoseDriver>()).enabled = true;
-            ((TrackedPoseDriver)leftArm.GetComponent<TrackedPoseDriver>()).enabled = true;
+            //camera.SetActive(true);
+            ((Camera)camera.GetComponent<Camera>()).enabled = true;
+            ((AudioListener)camera.GetComponent<AudioListener>()).enabled = true;
+            ((Camera)camera.GetComponent<Camera>()).enabled = true;
+            ((TrackedPoseDriver)camera.GetComponent<TrackedPoseDriver>()).enabled = true;
 
+            ((VRPlayerController)GetComponent<VRPlayerController>()).enabled = true;
+            //((TrackedPoseDriver)rightArm.GetComponent<TrackedPoseDriver>()).enabled = true;
+            
             ((UnityEngine.XR.Interaction.Toolkit.XRController)rightArm.GetComponent<UnityEngine.XR.Interaction.Toolkit.XRController>()).enabled = true;
             ((UnityEngine.XR.Interaction.Toolkit.XRDirectInteractor)rightArm.GetComponent<UnityEngine.XR.Interaction.Toolkit.XRDirectInteractor>()).enabled = true;
 
             ((UnityEngine.XR.Interaction.Toolkit.XRController)leftArm.GetComponent<UnityEngine.XR.Interaction.Toolkit.XRController>()).enabled = true;
             ((UnityEngine.XR.Interaction.Toolkit.XRDirectInteractor)leftArm.GetComponent<UnityEngine.XR.Interaction.Toolkit.XRDirectInteractor>()).enabled = true;
+
+            ((UnityEngine.XR.Interaction.Toolkit.XRRig)rig.GetComponent<UnityEngine.XR.Interaction.Toolkit.XRRig>()).enabled = true;
+            ((PlayerBodyAlign)body.GetComponent<PlayerBodyAlign>()).enabled = true;
         }
     }
 
